@@ -1,154 +1,128 @@
-# Project Setup Guide
+🩺 AI Doctor with Vision & Voice (VocDoc)
 
-This guide provides step-by-step instructions to set up your project environment, including the installation of FFmpeg and PortAudio across macOS, Linux, and Windows, as well as setting up a Python virtual environment using Pipenv, pip, or conda.
-
-## Table of Contents
-
-1. [Installing FFmpeg and PortAudio](#installing-ffmpeg-and-portaudio)
-   - [macOS](#macos)
-   - [Linux](#linux)
-   - [Windows](#windows)
-2. [Setting Up a Python Virtual Environment](#setting-up-a-python-virtual-environment)
-   - [Using Pipenv](#using-pipenv)
-   - [Using pip and venv](#using-pip-and-venv)
-   - [Using Conda](#using-conda)
-3. [Running the application](#project-phases-and-python-commands)
-
-## Installing FFmpeg and PortAudio
-
-### macOS
-
-1. **Install Homebrew** (if not already installed):
-
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. **Install FFmpeg and PortAudio:**
-
-   ```bash
-   brew install ffmpeg portaudio
-   ```
+AI Doctor with Vision & Voice is a multimodal AI-powered medical assistant that allows users to speak their symptoms and upload medical images.
+The system analyzes voice + vision inputs and responds like a virtual doctor with text-based and spoken medical insights using advanced generative AI models.
 
 
-### Linux
-For Debian-based distributions (e.g., Ubuntu):
+🚀 Features
 
-1. **Update the package list**
+🎤 Speech-to-Text (STT) using Whisper (via Groq API)
 
-```
-sudo apt update
-```
+🖼️ Medical Image Analysis using LLaMA 3 Vision (via Groq API)
 
-2. **Install FFmpeg and PortAudio:**
-```
-sudo apt install ffmpeg portaudio19-dev
-```
+🧠 Doctor-like AI Responses using custom medical system prompts
 
-### Windows
+🔊 Text-to-Speech (TTS) for AI voice responses
 
-#### Download FFmpeg:
-1. Visit the official FFmpeg download page: [FFmpeg Downloads](https://ffmpeg.org/download.html)
-2. Navigate to the Windows builds section and download the latest static build.
+🌐 Interactive Web UI built using Gradio
 
-#### Extract and Set Up FFmpeg:
-1. Extract the downloaded ZIP file to a folder (e.g., `C:\ffmpeg`).
-2. Add the `bin` directory to your system's PATH:
-   - Search for "Environment Variables" in the Start menu.
-   - Click on "Edit the system environment variables."
-   - In the System Properties window, click on "Environment Variables."
-   - Under "System variables," select the "Path" variable and click "Edit."
-   - Click "New" and add the path to the `bin` directory (e.g., `C:\ffmpeg\bin`).
-   - Click "OK" to apply the changes.
+⚡ Fast inference with Groq’s high-performance LPU backend
 
-#### Install PortAudio:
-1. Download the PortAudio binaries from the official website: [PortAudio Downloads](http://www.portaudio.com/download.html)
-2. Follow the installation instructions provided on the website.
 
----
+🧰 Tech Stack
 
-## Setting Up a Python Virtual Environment
+| Layer                 | Tools / APIs                     |
+| --------------------- | -------------------------------- |
+| Programming Language  | Python                           |
+| UI Framework          | Gradio                           |
+| Speech-to-Text        | Whisper-large-v3 (Groq API)      |
+| Image + Text Analysis | Meta LLaMA 3 Vision (Groq API)   |
+| Text-to-Speech        | gTTS                             |
+| Environment & Audio   | dotenv, Pydub, FFmpeg, PortAudio |
+| Dependency Management | Pipenv                           |
 
-### Using Pipenv
-1. **Install Pipenv (if not already installed):**  
-```
-pip install pipenv
-```
 
-2. **Install Dependencies with Pipenv:** 
+⚙️ Setup Instructions
 
-```
+1️⃣ Clone the Repository
+git clone https://github.com/yashika1004/AI-Doctor-with-Vision-and-Voice.git
+cd AI-Doctor-with-Vision-and-Voice
+
+2️⃣ Set Environment Variables
+
+Create a .env file in the project root:
+
+GROQ_API_KEY=your_groq_api_key
+
+3️⃣ Install Dependencies
+Option 1: Using Pipenv (Recommended)
 pipenv install
-```
-
-3. **Activate the Virtual Environment:** 
-
-```
 pipenv shell
-```
 
----
-
-### Using `pip` and `venv`
-#### Create a Virtual Environment:
-```
-python -m venv venv
-```
-
-#### Activate the Virtual Environment:
-**macOS/Linux:**
-```
-source venv/bin/activate
-```
-
-**Windows:**
-```
-venv\Scripts\activate
-```
-
-#### Install Dependencies:
-```
+Option 2: Using pip
 pip install -r requirements.txt
-```
 
----
+4️⃣ Install Audio Dependencies (Windows Users)
 
-### Using Conda
-#### Create a Conda Environment:
-```
-conda create --name myenv python=3.11
-```
+FFmpeg
+Download from: https://ffmpeg.org/download.html
 
-#### Activate the Conda Environment:
-```
-conda activate myenv
-```
+Add FFmpeg to system PATH
 
-#### Install Dependencies:
-```
-pip install -r requirements.txt
-```
+PortAudio / PyAudio
+
+pip install PyAudio-0.2.11-cp311-cp311-win_amd64.whl
+
+🧪 How It Works – Modular Architecture
+
+| Phase | Module                    | Description                                |
+| ----- | ------------------------- | ------------------------------------------ |
+| 1     | `brain_of_the_doctor.py`  | Analyzes medical images using LLaMA Vision |
+| 2     | `voice_of_the_patient.py` | Captures and transcribes patient speech    |
+| 3     | `voice_of_the_doctor.py`  | Converts AI response into speech           |
+| 4     | `gradio_app.py`           | Combines all modules into a single UI      |
+
+🎨 User Flow
+
+1️⃣ Speak your symptoms
+2️⃣ Upload a relevant medical image
+3️⃣ AI processes voice + vision
+4️⃣ Receive text + spoken AI doctor response
+
+📸 Demo Preview
+
+UI allows:
+
+🎙️ Voice input for symptoms
+
+🖼️ Image upload (skin issues, reports, etc.)
+
+📄 AI-generated diagnosis-style response
+
+🔊 Spoken medical explanation
+
+🌟 Project Inspiration
+
+This project demonstrates how multimodal generative AI can be used to build:
+
+Voice-enabled assistants
+
+Vision-based medical insight systems
+
+Accessible AI-driven healthcare demos
+
+It explores the future of intelligent, empathetic AI health assistants.
+
+🔮 Future Improvements
+
+🌍 Multilingual support (Hindi, regional languages)
+
+🗂️ User history & conversation logs
+
+☁️ Deployment on Hugging Face / Streamlit Cloud
+
+🔐 HIPAA/GDPR-safe sandbox mode
+
+📱 Mobile-friendly UI
+
+👩‍💻 Author
+
+Yashika Srivastava
+🎓 B.Tech CSE (Data Science)
+🔗 GitHub: https://github.com/yashika1004
 
 
-# Project Phases and Python Commands
+📄 License
 
-## Phase 1: Brain of the doctor
-```
-python brain_of_the_doctor.py
-```
-
-## Phase 2: Voice of the patient
-```
-python voice_of_the_patient.py
-```
-
-## Phase 3: Voice of the doctor
-```
-python voice_of_the_doctor.py
-```
-
-## Phase 4: Setup Gradio UI
-```
-python gradio_app.py
-```
-
+This project is released for educational and demonstration purposes only.
+Not intended for real-world medical diagnosis or treatment.
