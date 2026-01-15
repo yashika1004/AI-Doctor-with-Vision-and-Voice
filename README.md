@@ -1,8 +1,8 @@
+<<<<<<< HEAD
 🩺 AI Doctor with Vision & Voice (VocDoc)
 
 AI Doctor with Vision & Voice is a multimodal AI-powered medical assistant that allows users to speak their symptoms and upload medical images.
 The system analyzes voice + vision inputs and responds like a virtual doctor with text-based and spoken medical insights using advanced generative AI models.
-
 
 🚀 Features
 
@@ -18,7 +18,6 @@ The system analyzes voice + vision inputs and responds like a virtual doctor wit
 
 ⚡ Fast inference with Groq’s high-performance LPU backend
 
-
 🧰 Tech Stack
 
 | Layer                 | Tools / APIs                     |
@@ -30,7 +29,6 @@ The system analyzes voice + vision inputs and responds like a virtual doctor wit
 | Text-to-Speech        | gTTS                             |
 | Environment & Audio   | dotenv, Pydub, FFmpeg, PortAudio |
 | Dependency Management | Pipenv                           |
-
 
 ⚙️ Setup Instructions
 
@@ -121,8 +119,23 @@ Yashika Srivastava
 🎓 B.Tech CSE (Data Science)
 🔗 GitHub: https://github.com/yashika1004
 
-
 📄 License
 
 This project is released for educational and demonstration purposes only.
 Not intended for real-world medical diagnosis or treatment.
+=======
+Project Setup Guide
+This guide provides step-by-step instructions to set up your project environment, including the installation of FFmpeg and PortAudio across macOS, Linux, and Windows, as well as setting up a Python virtual environment using Pipenv, pip, or conda.
+
+Table of Contents
+Installing FFmpeg and PortAudio
+macOS
+Linux
+Windows
+Setting Up a Python Virtual Environment
+Using Pipenv
+Using pip and venv
+Using Conda
+Running the application
+
+> > > > > > > b655d40cf2938bb04965ae95143941e5af6fee18
